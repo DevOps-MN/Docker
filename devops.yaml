@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   labels:
     app: devops-demo
-  name: devops-demo
+  name: devops
 spec:
   replicas: 1
   selector:
@@ -26,7 +26,7 @@ kind: Service
 metadata:
   labels:
     app: devops-demo
-  name: devops-demo
+  name: devops
 spec:
   type: NodePort
   selector:
