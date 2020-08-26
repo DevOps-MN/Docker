@@ -1,0 +1,37 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: myweb
+  name: pipeline-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myweb
+  template:
+    metadata:
+      labels:
+        app: myweb
+    spec:
+      containers:
+      - image: km20/devops:latest
+        imagePullPolicy: Always
+        name: myweb
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: myweb
+  name: pipeline-demo
+spec:
+  ports:
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: myweb
+  type: NodePort
