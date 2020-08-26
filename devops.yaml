@@ -18,7 +18,7 @@ spec:
       containers:
       - image: km20/devops:latest
         imagePullPolicy: Always
-        name: devops-demo
+        name: devops
 
 ---
 apiVersion: v1
