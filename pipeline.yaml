@@ -3,34 +3,34 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: myweb
+    app: pipeline-demo
   name: pipeline-demo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: myweb
+      app: pipeline-demo
   template:
     metadata:
       labels:
-        app: myweb
+        app: pipeline-demo
     spec:
       containers:
       - image: km20/devops:latest
         imagePullPolicy: Always
-        name: myweb
+        name: pipeline-demo
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: myweb
+    app: pipeline-demo
   name: pipeline-demo
 spec:
   type: NodePort
   selector:
-    app: MyApp
+    app: pipeline-demo
   ports:
       # By default and for convenience, the `targetPort` is set to the same value as the `port` field.
     - port: 80
